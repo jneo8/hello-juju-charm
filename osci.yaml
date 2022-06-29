@@ -1,0 +1,5 @@
+- project:
+    vars:
+      needs_charm_build: true
+      charm_build_name: hello-juju
+      build_type: charmcraft
