@@ -1,0 +1,11 @@
+applications:
+  dummy:
+    charm: ../../hello-juju.charm
+    num_units: 1
+  postgresql:
+    charm: ch:postgresql
+    num_units: 1
+
+relations:
+  - - postgresql:db
+    - dummy

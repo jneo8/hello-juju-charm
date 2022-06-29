@@ -1,0 +1,7 @@
+charm_name: hello-juju
+
+gate_bundles:
+  - focal
+
+tests:
+  - zaza.charm_tests.hello_juju.tests.HelloJujuBaseTest

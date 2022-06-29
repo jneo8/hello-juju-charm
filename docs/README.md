@@ -65,3 +65,43 @@ Finally, build charm with tox
 ```bash
 tox -e build
 ```
+
+## Enable zaza
+
+### Add zaza test to your charm.
+
+```bash
+echo "git+https://github.com/openstack-charmers/zaza.git#egg=zaza" > test-requirements.txt
+```
+
+```bash
+# rename origin unit tests folder
+mv tests unit-tests
+
+mkdir -p tests/bundles
+touch tests/tests.yaml
+```
+
+```bash
+mkdir -p zaza/charm_tests/hello_juju
+touch zaza/__init__.py
+touch zaza/charm_tests/hello_juju/setup.py
+touch zaza/charm_tests/hello_juju/tests.py
+```
+
+```
+functest-prepare -m ft --log DEBUG
+```
+
+---
+
+## References
+
+- Others
+    - https://docs.google.com/document/d/1Zx7crHzSxwdJGmrBTTn6M3hF3Oz5dEfKqe1sTyr_1e0/edit
+    - https://github.com/juju/hello-juju-charm
+- Zaza:
+    - https://github.com/openstack-charmers/zaza
+    - https://github.com/openstack-charmers/zaza-openstack-tests
+- The files, template you need to add test to project:
+    - https://github.com/openstack-charmers/release-tools/tree/master/global
